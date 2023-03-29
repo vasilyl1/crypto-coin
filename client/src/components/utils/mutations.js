@@ -25,4 +25,35 @@ export const ADD_USER = gql`
       }
     }
   }
+  `;
+
+export const SAVE_NEWS = gql`
+  mutation saveNews($username: String!, $description: String, $newsId: String!, $image: String, $link: String, $title: String!, $authors:[String]) {
+    saveBook(username: $username, description: $description, newsId: $newsId, image: $image, link: $link, title: $title, authors:$authors) {
+        savedNews {
+            authors
+            description
+            newsId
+            image
+            link
+            title
+          }
+    }
+  }
+  `;
+
+  export const DELETE_NEWS = gql`
+  mutation deleteNews($username: String!, $newsId: String!) {
+    deleteBook(username: $username, newsId: $newsId) {
+        savedNews {
+            authors
+            description
+            newsId
+            image
+            link
+            title
+          }
+        
+    }
+  }
 `;
