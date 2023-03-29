@@ -21,26 +21,25 @@ const AppNavbar = () => {
             <Navbar bg='dark' variant='dark' expand='lg'>
                 <Container fluid>
                     <Navbar.Brand as={Link} to='/'>
-                        News Search
+                        <img src="logo.png" width="200" height="37" alt="logo"></img>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls='navbar' />
                     <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
                         <Nav className='ml-auto d-flex'>
                             <Nav.Link as={Link} to='/'>
-                                Search For News
+                                Home
                             </Nav.Link>
-                            {/* if user is logged in show saved books and logout option */}
+                            <Nav.Link as={Link} to='/about'>
+                                About
+                            </Nav.Link>
+                            <Nav.Link as={Link} to='/Coin'>
+                                Coin Stats
+                            </Nav.Link>
+                            {/* if user is logged in show saved books and logout */}
                             {Auth.loggedIn() ? (
                                 <>
-                                    <Link className="btn btn-lg btn-info m-2" to="/saved">
-                                        {Auth.getProfile().data.username}'s profile
-                                    </Link>
-                                    <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                                        Logout
-                                    </button>
-
-                                    <Nav.Link as={Link} to='/profile'>
-                                        See Your News
+                                    <Nav.Link as={Link} to='/saved'>
+                                        See Your Books
                                     </Nav.Link>
                                     <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                                 </>
@@ -51,6 +50,7 @@ const AppNavbar = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+
             {/* set modal data up */}
             <Modal
                 size='lg'

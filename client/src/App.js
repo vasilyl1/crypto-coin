@@ -13,6 +13,7 @@ import Navbar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import Auth from './components/utils/auth';
+import Footer from './components/Footer';
 
 // Construct main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -68,6 +69,7 @@ function App() {
               element={<h1 className='display-2'>Wrong page!</h1>} />
           </Routes>
         </>
+        <Footer />
       </Router>
     </ApolloProvider >
   );
