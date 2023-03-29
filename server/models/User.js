@@ -26,5 +26,4 @@ userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
 
-
-module.exports = mongoose.model('User', userSchema);;
+module.exports = mongoose.model('User', userSchema);

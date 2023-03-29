@@ -1,9 +1,8 @@
 const { Schema } = mongoose;
 
-const source = new Schema({
+const sourceSchema = new Schema({
   description: {type: String, required: true},
   http: {type: String, required: true},
 });
 
-
-module.exports =  mongoose.model('Source', source);
+module.exports =  mongoose.model('Source', sourceSchema);
