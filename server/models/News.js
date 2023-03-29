@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const newsSchema = new Schema({
   textContent: {type: String, required: true},
   date: {type: String, required: true},
-  sources:{type: Schema.Types.ObjectId, ref: 'News'},
+  sources:{type: Schema.Types.ObjectId, ref: 'Source'},
 });
 
 
