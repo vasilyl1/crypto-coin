@@ -8,4 +8,5 @@ const newsSchema = new Schema({
   sources:{type: Schema.Types.ObjectId, ref: 'Source'},
 });
 
+
 module.exports =  mongoose.model('News', newsSchema);
