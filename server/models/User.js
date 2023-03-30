@@ -20,6 +20,11 @@ const userSchema = new Schema({
     required: true, 
     minlength: 5
   },
+  subscribe_level: {
+    type: String,
+    enum: ['junior', 'middle', 'senior'],
+    default: 'junior',
+},
   personalNews: [newsSchema],
 });
 
