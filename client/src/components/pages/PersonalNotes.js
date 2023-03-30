@@ -35,18 +35,17 @@ const PersonalNotes = ({ value = "", onUpdate = undefined }) => {
     });
     const view = new EditorView({ state, parent: currentEditor });
     //const currText = view.state.Text.toJSON();
-    setCode(state);
-    initdb(); // open database or initialize it
+    //setCode(state);
+    //initdb(); // open database or initialize it
     // When the editor is ready, set the value to whatever is stored in indexeddb.
     // Fall back to localStorage if nothing is stored in indexeddb, and if neither is available, set the value to header.
     getDb().then((data) => {
-      console.info('Loaded data from IndexedDB, injecting into editor');
       const localData = localStorage.getItem('content');
       view.dispatch({
         changes: { from: 0, insert: (data || localData || header) }
       });
-      handleLocalStorage();
-      handleIndexedDb();
+      //handleLocalStorage();
+      //handleIndexedDb();
     });
 
     return () => view.destroy();
