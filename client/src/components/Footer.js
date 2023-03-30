@@ -33,7 +33,7 @@ const Footer = () => {
                     </Col>
                 </Row>
                 <Row className="d-flex">
-                    <p className="mb-0 mt-4 text-center">&copy; 2023 My Website. All rights reserved.</p> 
+                    <small className="mb-0 mt-4 text-center">&copy; 2023 My Website. All rights reserved.</small> 
                 </Row>
             </Container>
         </footer>

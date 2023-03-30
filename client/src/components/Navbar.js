@@ -32,7 +32,7 @@ const AppNavbar = () => {
                             <Nav.Link as={Link} to='/about'>
                                 About
                             </Nav.Link>
-                            <Nav.Link as={Link} to='/Coin'>
+                            <Nav.Link as={Link} to='/currencySearch'>
                                 Coin Stats
                             </Nav.Link>
                             {/* if user is logged in show saved books and logout */}
@@ -40,6 +40,8 @@ const AppNavbar = () => {
                                 <>
                                     <Nav.Link as={Link} to='/saved'>
                                         See Your News
+                                    <Nav.Link as={Link} to='/profile'>
+                                        Profile
                                     </Nav.Link>
                                     <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                                 </>

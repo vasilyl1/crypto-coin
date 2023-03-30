@@ -7,7 +7,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DisplayNews from './components/pages/DisplayNews';
+import Homepage from './components/pages/Homepage';
 import UserNews from './components/pages/UserNews';
 import Navbar from './components/Navbar';
 import LoginForm from './components/LoginForm';
@@ -15,6 +15,9 @@ import SignupForm from './components/SignupForm';
 import Auth from './components/utils/auth';
 import PersonalNotes from './components/pages/PersonalNotes';
 import Footer from './components/Footer';
+import About from './components/pages/About';
+import PageNotFound from './components/pages/PageNotFound';
+import CurrencySearch from './components/pages/currencySearch';
 
 // Construct main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -50,7 +53,11 @@ function App() {
           <Routes>
             <Route
               path='/'
-              element={<DisplayNews />}
+              element={<Homepage />}
+            />
+            <Route
+              path="/about"
+              element={<About />}
             />
             <Route
               path="/login"
@@ -69,8 +76,12 @@ function App() {
               element={<PersonalNotes />}
             />
             <Route
+              path="/currencySearch"
+              element={<CurrencySearch />}
+            />
+            <Route
               path='*'
-              element={<h1 className='display-2'>Wrong page!</h1>} />
+              element={<PageNotFound />} />
           </Routes>
         </>
         <Footer />
