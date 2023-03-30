@@ -13,6 +13,7 @@ import Navbar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import Auth from './components/utils/auth';
+import PersonalNotes from './components/pages/PersonalNotes';
 import Footer from './components/Footer';
 import About from './components/pages/About';
 import PageNotFound from './components/pages/PageNotFound';
@@ -70,11 +71,14 @@ function App() {
               path="/profile"
               element={<UserNews />}
             />
+               <Route
+              path="/saved"
+              element={<PersonalNotes />}
+            />
             <Route
               path="/currencySearch"
               element={<CurrencySearch />}
             />
-              
             <Route
               path='*'
               element={<PageNotFound />} />
