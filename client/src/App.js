@@ -13,6 +13,7 @@ import Navbar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import Auth from './components/utils/auth';
+import PersonalNotes from './components/pages/PersonalNotes';
 import Footer from './components/Footer';
 
 // Construct main GraphQL API endpoint
@@ -63,7 +64,10 @@ function App() {
               path="/profile"
               element={<UserNews />}
             />
-              
+               <Route
+              path="/saved"
+              element={<PersonalNotes />}
+            />
             <Route
               path='*'
               element={<h1 className='display-2'>Wrong page!</h1>} />

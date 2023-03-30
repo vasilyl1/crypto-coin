@@ -120,7 +120,7 @@ const DisplayNews = () => {
         <h2 className="pt-5">
           {searchedNews.length
             ? `Viewing ${searchedNews.length} results:`
-            : "Search for a book to begin"}
+            : "Search for a news to begin"}
         </h2>
         <Row>
           {searchedNews.map((news) => {
