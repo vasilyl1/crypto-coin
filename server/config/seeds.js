@@ -92,7 +92,7 @@ db.once('open', async () => {
     username: 'Elijah',
     email: 'eholt@testmail.com',
     password: 'password12345',
-    subscribe_level: 'middle',
+    subscribe_level: 'intermediate',
     personalNews: [news[3], news[4], news[5]]
   });
 
@@ -100,7 +100,7 @@ db.once('open', async () => {
     username: 'Yaro',
     email: 'yaro@testmail.com',
     password: 'password12345',
-    subscribe_level: 'senior',
+    subscribe_level: 'advanced',
     personalNews: [news[6], news[7], news[8], news[9]]
   });
 
