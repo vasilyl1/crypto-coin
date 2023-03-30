@@ -1,4 +1,6 @@
-const { Schema } = require('mongoose');
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
 
 const newsSchema = new Schema({
   textContent: {
@@ -6,14 +8,14 @@ const newsSchema = new Schema({
     required: true
   },
   date: {
-    type: String, 
-    equired: true
+    type: Date, 
+    required: true
   },
-  sources:{
+  source:{
     type: Schema.Types.ObjectId, 
     ref: 'Source'
   },
 });
 
 
-module.exports =  newsSchema;
+module.exports = mongoose.model('News', newsSchema); 
