@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const source = new Schema({
-  description: {type: String, required: true},
+  title: {type: String, required: true},
   http: {type: String, required: true},
 });
 
