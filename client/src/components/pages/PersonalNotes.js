@@ -11,7 +11,7 @@ const PersonalNotes = ({ value = "", onUpdate = undefined }) => {
   const [code, setCode] = useState('');
 
   const handleLocalStorage = () => { // Save the content of the editor to local storage on key press
-    localStorage.setItem('content', code);
+    localStorage.setItem('content', code.state.Text.toJSON());
   };
 
   const handleIndexedDb =  (e) => { // Save the content of the editor when the editor itself loses focus
@@ -34,7 +34,8 @@ const PersonalNotes = ({ value = "", onUpdate = undefined }) => {
       extensions
     });
     const view = new EditorView({ state, parent: currentEditor });
-    setCode(state.doc.toString());
+    //const currText = view.state.Text.toJSON();
+    setCode(view);
     initdb(); // open database or initialize it
     // When the editor is ready, set the value to whatever is stored in indexeddb.
     // Fall back to localStorage if nothing is stored in indexeddb, and if neither is available, set the value to header.
@@ -44,6 +45,8 @@ const PersonalNotes = ({ value = "", onUpdate = undefined }) => {
       view.dispatch({
         changes: { from: 0, insert: (data || localData || header) }
       });
+      handleLocalStorage();
+      handleIndexedDb();
     });
 
     return () => view.destroy();
@@ -68,8 +71,9 @@ const PersonalNotes = ({ value = "", onUpdate = undefined }) => {
         </div>
         <h1> Personal Notes</h1>
         <div ref={editor}
-          onChange={handleLocalStorage()}
-          onBlur={handleIndexedDb()}
+         // onChange={handleLocalStorage()}
+         // onBlur={handleIndexedDb()}
+         //onBlur={handleLocalStorage()}
         />
 
         <div className="navbar-brand" > <img src="./assets/icons/icon_96x96.png" /></div>
