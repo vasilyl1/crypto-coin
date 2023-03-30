@@ -11,7 +11,7 @@ const PersonalNotes = ({ value = "", onUpdate = undefined }) => {
   const [code, setCode] = useState('');
 
   const handleLocalStorage = () => { // Save the content of the editor to local storage on key press
-    localStorage.setItem('content', code.state.Text.toJSON());
+    localStorage.setItem('content', code.Text.toJSON());
   };
 
   const handleIndexedDb =  (e) => { // Save the content of the editor when the editor itself loses focus
@@ -35,7 +35,7 @@ const PersonalNotes = ({ value = "", onUpdate = undefined }) => {
     });
     const view = new EditorView({ state, parent: currentEditor });
     //const currText = view.state.Text.toJSON();
-    setCode(view);
+    setCode(state);
     initdb(); // open database or initialize it
     // When the editor is ready, set the value to whatever is stored in indexeddb.
     // Fall back to localStorage if nothing is stored in indexeddb, and if neither is available, set the value to header.
