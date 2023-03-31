@@ -40,5 +40,5 @@ userSchema.pre('save', async function(next) {
 userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
-
-module.exports =  model('User', userSchema);;
+const User = model('User', userSchema);
+module.exports =  User;
