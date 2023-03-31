@@ -36,9 +36,9 @@ Toronto Boot Camp
 The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
 
 ## Contributing
-👪 https://github.com/vasilyl1 <br />
-👪 https://github.com/Liguang-Lee-Zhang <br />
-👪 https://github.com/YaroslavVolvach <br />
+👪 [vasilyl1](https://github.com/vasilyl1) <br />
+👪 [Liguang-Lee-Zhang](https://github.com/Liguang-Lee-Zhang) <br />
+👪 [YaroslavVolvach](https://github.com/YaroslavVolvach) <br />
 
 ## Tests
 ✏️ Yes
@@ -52,7 +52,7 @@ The last section of a high-quality README file is the license. This lets other d
 <br />
 
 ✉️ Email me with any questions: <br /> 
-Vasily Likhovaydo - likhovaido@gmail.com </br />
+Vasily Likhovaydo - likhovaido@gmail.com <br />
 Liguang Zhang - leezhang97@gmail.com<br />
 Yaroslav Volvach - volvachya@gmail.com<br />
 
