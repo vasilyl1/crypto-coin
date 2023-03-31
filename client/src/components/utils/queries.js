@@ -12,12 +12,11 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_NEWS = gql`
-  query getNews($subscription: String!) {
+  query GetNews($subscription: String!) {
     getNews(subscription: $subscription) {
         _id
         textContent
         date
-        source
         subscription
         source {
           _id
