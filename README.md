@@ -36,18 +36,18 @@ Toronto Boot Camp
 The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
 
 ## Contributing
-👪 https://github.com/vasilyl1
-👪 https://github.com/Liguang-Lee-Zhang
-👪 https://github.com/YaroslavVolvach
+👪 https://github.com/vasilyl1 <br />
+👪 https://github.com/Liguang-Lee-Zhang <br />
+👪 https://github.com/YaroslavVolvach <br />
 
 ## Tests
 ✏️ Yes
 ## Questions
 ✋ Let me know about your issue:<br />
 <br />
-:octocat: Find us on GitHub: 
-[vasilyl1]https://github.com/vasilyl1<br />
-[Liguang-Lee-Zhang]https://github.com/Liguang-Lee-Zhang<br />
+:octocat: Find us on GitHub: <br />
+[vasilyl1](https://github.com/vasilyl1)<br />
+[Liguang-Lee-Zhang](https://github.com/Liguang-Lee-Zhang)<br />
 [YaroslavVolvach](https://github.com/YaroslavVolvach)<br />
 <br />
 
@@ -62,5 +62,7 @@ Yaroslav Volvach - volvachya@gmail.com<br />
 <img width="1440" alt="Screenshot 2023-03-31 at 11 40 25" src="https://user-images.githubusercontent.com/60551329/229166907-484d15ac-05da-48e0-85da-c1a61841c06a.png">
 <img width="1440" alt="Screenshot 2023-03-31 at 11 40 37" src="https://user-images.githubusercontent.com/60551329/229166918-0493a057-595d-46b3-84de-2de219660ed6.png">
 
-## Crypto-Coin: https://shopstore.herokuapp.com/
+## Go to Crypto-Coin 
+
+Crypto-Coin Site: https://shopstore.herokuapp.com/
 
