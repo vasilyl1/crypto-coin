@@ -91,7 +91,22 @@ const Homepage = () => {
 
   return (
     <>
-      <Container>
+      <div className="container col-xxl-8 px-4 py-5">
+        <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div className="col-10 col-sm-8 col-lg-6">
+            <img src="hero.png" className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy" />
+          </div>
+          <div className="col-lg-6">
+            <h1 className="display-5 fw-bold lh-1 mb-3">Cryptocurrency made easy</h1>
+            <p className="lead">Discover stories, thinking, and expertise from renowned experts on cryptocurrency.</p>
+            <div className="d-grid gap-2 d-md-flex justify-content-md-start">
+              <a href="#news-feed" type="button" className="btn btn-outline-secondary btn-lg px-4">Start reading </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Container id="news-feed">
         <h5 className="pt-5">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="25" height="25"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21 7L13 15L9 11L3 17M21 7H15M21 7V13" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
           &nbsp;
@@ -130,7 +145,10 @@ const Homepage = () => {
             );
           })}
         </Row>
+        <br />
+        <hr />  
       </Container>
+
     </>
   );
 
