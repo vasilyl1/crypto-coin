@@ -93,7 +93,7 @@ const CurrencySearch = () => {
         <>
             <div className="text-light bg-dark p-5">
                 <Container>
-                    <h1>Search for News</h1>
+                    <h2>Search for News</h2>
                     <Form onSubmit={handleFormSubmit}>
                         <Row>
                             <Col xs={12} md={8}>
