@@ -18,24 +18,47 @@ const Homepage = () => {
   ];
 
   // fetch the market data
- /* const [coinData, getMarket] = useState([]);
-  useEffect(() => {
+ const [coinData, getMarket] = useState([]);
+ const [coinDataLoadig, updLoading] = useState(true);
+  
+ /*
     const fetchData = async () => {
       try {
-        const coin = await coinData() || 
-        [{"id":"bitcoin","symbol":"btc","name":"Bitcoin","image":"https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579","current_price":28261,"market_cap":545375100577,"market_cap_rank":1,"fully_diluted_valuation":592401573650,"total_volume":20088340799,"high_24h":28812,"low_24h":27801,"price_change_24h":-212.4735778620052,"price_change_percentage_24h":-0.74622,"market_cap_change_24h":-4268295839.495178,"market_cap_change_percentage_24h":-0.77656,"circulating_supply":19332962.0,"total_supply":21000000.0,"max_supply":21000000.0,"ath":69045,"ath_change_percentage":-59.19471,"ath_date":"2021-11-10T14:24:11.849Z","atl":67.81,"atl_change_percentage":41448.93479,"atl_date":"2013-07-06T00:00:00.000Z","roi":null,"last_updated":"2023-03-31T03:34:27.901Z"}];
+        const coin = await coinData();
+        
+        //[{"id":"bitcoin","symbol":"btc","name":"Bitcoin","image":"https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579","current_price":28261,"market_cap":545375100577,"market_cap_rank":1,"fully_diluted_valuation":592401573650,"total_volume":20088340799,"high_24h":28812,"low_24h":27801,"price_change_24h":-212.4735778620052,"price_change_percentage_24h":-0.74622,"market_cap_change_24h":-4268295839.495178,"market_cap_change_percentage_24h":-0.77656,"circulating_supply":19332962.0,"total_supply":21000000.0,"max_supply":21000000.0,"ath":69045,"ath_change_percentage":-59.19471,"ath_date":"2021-11-10T14:24:11.849Z","atl":67.81,"atl_change_percentage":41448.93479,"atl_date":"2013-07-06T00:00:00.000Z","roi":null,"last_updated":"2023-03-31T03:34:27.901Z"}];
+
         getMarket(coin);
-        console.log(coin);
+        console.log(coinData);
+        updLoading(false);
       } catch (err) {
         console.error(err);
       }
     };
-  }, []);
+    fetchData();
 
 */
 
+  
+  const promise1 = new Promise((resolve, reject) => {
+    resolve(coinData());
+  });
+  
+  promise1.then((value) => {
+    
+    updLoading(false); // change the flag that async loading completed
+    getMarket(value); // change the state with the loaded data
+    console.log(coinData); // log what has been returned from API provider
+    
+  }, () => { 
+    console.log('error: could not get the market data');
+  });
+  
+
+
+
   //getMarket(coinData()); // fetching the coins stats
-  const coinData = [{"id":"bitcoin","symbol":"btc","name":"Bitcoin","image":"https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579","current_price":28261,"market_cap":545375100577,"market_cap_rank":1,"fully_diluted_valuation":592401573650,"total_volume":20088340799,"high_24h":28812,"low_24h":27801,"price_change_24h":-212.4735778620052,"price_change_percentage_24h":-0.74622,"market_cap_change_24h":-4268295839.495178,"market_cap_change_percentage_24h":-0.77656,"circulating_supply":19332962.0,"total_supply":21000000.0,"max_supply":21000000.0,"ath":69045,"ath_change_percentage":-59.19471,"ath_date":"2021-11-10T14:24:11.849Z","atl":67.81,"atl_change_percentage":41448.93479,"atl_date":"2013-07-06T00:00:00.000Z","roi":null,"last_updated":"2023-03-31T03:34:27.901Z"}];
+  //const coinData = [{"id":"bitcoin","symbol":"btc","name":"Bitcoin","image":"https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579","current_price":28261,"market_cap":545375100577,"market_cap_rank":1,"fully_diluted_valuation":592401573650,"total_volume":20088340799,"high_24h":28812,"low_24h":27801,"price_change_24h":-212.4735778620052,"price_change_percentage_24h":-0.74622,"market_cap_change_24h":-4268295839.495178,"market_cap_change_percentage_24h":-0.77656,"circulating_supply":19332962.0,"total_supply":21000000.0,"max_supply":21000000.0,"ath":69045,"ath_change_percentage":-59.19471,"ath_date":"2021-11-10T14:24:11.849Z","atl":67.81,"atl_change_percentage":41448.93479,"atl_date":"2013-07-06T00:00:00.000Z","roi":null,"last_updated":"2023-03-31T03:34:27.901Z"}];
 
   return (
     <>
@@ -45,11 +68,10 @@ const Homepage = () => {
           &nbsp;
           Trending articles
         </h5>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <>
-            <div>
+        {coinDataLoadig? (<div>Loading...</div>) : 
+        (<>
+        
+          <div>
               {coinData?.map((c) =>
                 <>
                   <img src={c.image} />
@@ -59,6 +81,13 @@ const Homepage = () => {
                 </>
               )}
             </div>
+        </>)}
+
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <>
+            
             <Row>
               {searchedNews?.map((news) => {
                 return (
