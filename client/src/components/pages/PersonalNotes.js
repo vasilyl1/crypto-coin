@@ -51,7 +51,7 @@ const PersonalNotes = ({ value = "", onUpdate = undefined }) => {
     return () => view.destroy();
   }, [editor]);
 
-
+/*
   // Check if service workers are supported
   if ('serviceWorker' in navigator) {
     // register workbox service worker
@@ -60,7 +60,7 @@ const PersonalNotes = ({ value = "", onUpdate = undefined }) => {
   } else {
     console.error('Service workers are not supported in this browser.');
   }
-
+*/
   return (<>
 
     <div>
