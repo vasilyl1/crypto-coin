@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const newsSchema = require('./News');
+const News = require('./News');
 
 const userSchema = new Schema({
   username: {
@@ -22,10 +22,10 @@ const userSchema = new Schema({
   },
   subscribe_level: {
     type: String,
-    enum: ['junior', 'middle', 'senior'],
-    default: 'junior',
+    enum: ['free', 'intermediate', 'advanced'],
+    default: 'free',
 },
-  personalNews: [newsSchema],
+  personalNews: [News.schema],
 });
 
 userSchema.pre('save', async function(next) {
@@ -37,11 +37,8 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
-// compare the incoming password with the hashed password
 userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
-
 const User = model('User', userSchema);
-
-module.exports = User;
+module.exports =  User;
