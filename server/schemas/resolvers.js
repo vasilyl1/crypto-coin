@@ -8,7 +8,7 @@ const resolvers = {
             return await User.findOne({ username });
         },
         getNews: async (parent, { subscription }) => {
-            return await News.find({ subscription });
+            return await News.find({ subscription: subscription }).populate('source');
         }
     },
 
