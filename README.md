@@ -45,13 +45,13 @@ The last section of a high-quality README file is the license. This lets other d
 ## Questions
 ✋ Let me know about your issue:<br />
 <br />
-:octocat: Find us on GitHub: <br />
-[vasilyl1](https://github.com/vasilyl1)<br />
-[Liguang-Lee-Zhang](https://github.com/Liguang-Lee-Zhang)<br />
-[YaroslavVolvach](https://github.com/YaroslavVolvach)<br />
+https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white Find us on LinkedIn: <br />
+[vasilyl1](https://www.linkedin.com/in/vlikhovaido/)<br />
+[Liguang-Lee-Zhang](https://www.linkedin.com/in/liguangzhang/)<br />
+[YaroslavVolvach](https://www.linkedin.com/in/yaroslav-volvach-90a7a7245/)<br />
 <br />
 
-✉️ Email me with any questions: <br /> 
+✉️ Email us with any questions: <br /> 
 Vasily Likhovaydo - likhovaido@gmail.com <br />
 Liguang Zhang - leezhang97@gmail.com<br />
 Yaroslav Volvach - volvachya@gmail.com<br />
