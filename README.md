@@ -82,9 +82,10 @@ Tools:
 </div>
 
 ## Contributing
-👪 [vasilyl1](https://github.com/vasilyl1) <br />
-👪 [Liguang-Lee-Zhang](https://github.com/Liguang-Lee-Zhang) <br />
-👪 [YaroslavVolvach](https://github.com/YaroslavVolvach) <br />
+[![GitHub](https://i.stack.imgur.com/tskMh.png) vasilyl1](https://github.com/vasilyl1)<br />
+[![GitHub](https://i.stack.imgur.com/tskMh.png) Liguang-Lee-Zhang](https://github.com/Liguang-Lee-Zhang)<br />
+[![GitHub](https://i.stack.imgur.com/tskMh.png) YaroslavVolvach](https://github.com/YaroslavVolvach)<br />
+
 
 ## Tests
 ✏️ Yes
@@ -92,19 +93,9 @@ Tools:
 ✋ Let me know about your issue:<br />
 <br />
 Find us on LinkedIn: <br />
-<a href="https://www.linkedin.com/in/vlikhovaido/" rel="nofollow noreferrer">
-    <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin"> Vasily Likhovaydo
-</a> &nbsp; 
-<br />
-<a href="https://www.linkedin.com/in/liguangzhang/" rel="nofollow noreferrer">
-    <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin"> Liguang-Lee-Zhang
-</a> &nbsp; 
-<br />
-<a href="https://www.linkedin.com/in/yaroslav-volvach-90a7a7245/" rel="nofollow noreferrer">
-    <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin"> Yaroslav Volvach
-</a> &nbsp; 
-<br />
-[![Linkedin](https://i.stack.imgur.com/gVE0j.png) Me](https://www.linkedin.com/in/yaroslav-volvach-90a7a7245/)
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) Vasily Likhovaydo](https://www.linkedin.com/in/vlikhovaido/)<br />
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) Liguang-Lee-Zhang](https://www.linkedin.com/in/liguangzhang/)<br >
+[![Linkedin](https://i.stack.imgur.com/gVE0j.png) Yaroslav Volvach](https://www.linkedin.com/in/yaroslav-volvach-90a7a7245/)<br />
 
 ✉️ Email us with any questions: <br /> 
 Vasily Likhovaydo - likhovaido@gmail.com <br />
