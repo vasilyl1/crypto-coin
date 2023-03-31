@@ -7,7 +7,7 @@ const newsSchema = new Schema({
   },
   body: {
     type: String,
-    required: true
+    default: ''
   },
   date: {
     type: String, 
