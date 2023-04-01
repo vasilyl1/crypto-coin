@@ -1,21 +1,28 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 
 const newsSchema = new Schema({
-  textContent: {
-    type: String, 
+  title: {
+    type: String,
     required: true
   },
+  body: {
+    type: String,
+    default: ''
+  },
   date: {
-    type: Date, 
+    type: String, 
     required: true
   },
   source:{
     type: Schema.Types.ObjectId, 
     ref: 'Source'
   },
+  subscription: { 
+    type: String, 
+    required: true, 
+    default: 'free'
+  }
 });
 
-
-module.exports = mongoose.model('News', newsSchema); 
+const News = model('News', newsSchema);
+module.exports = News; 

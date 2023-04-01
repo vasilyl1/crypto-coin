@@ -1,11 +1,9 @@
-const mongoose = require('mongoose');
+const {Schema, model } = require('mongoose');
 
-const { Schema } = mongoose;
-
-const source = new Schema({
-  title: {type: String, required: true},
-  http: {type: String, required: true},
+const sourceSchema = new Schema({
+  title: {type: String},
+  http: {type: String}
 });
 
-
-module.exports =  mongoose.model('Source', source);
+const Source = model('Source', sourceSchema);
+module.exports = Source;

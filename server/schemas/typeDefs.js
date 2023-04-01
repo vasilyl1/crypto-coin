@@ -12,8 +12,24 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+
+  type News {
+    _id: ID
+    textContent: String
+    date: String!
+    source: Sources
+    subscription: String!
+  }
+
+  type Sources {
+    _id: ID
+    title: String!
+    http: String!
+  }
+
   type Query {
     user(username: String!): User
+    getNews(subscription: String!): [News]
   }
 
   type Mutation {

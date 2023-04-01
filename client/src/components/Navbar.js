@@ -40,6 +40,7 @@ const AppNavbar = () => {
                                 <>
                                     <Nav.Link as={Link} to='/saved'>
                                         See Your News
+                                    </Nav.Link>
                                     <Nav.Link as={Link} to='/profile'>
                                         Profile
                                     </Nav.Link>
