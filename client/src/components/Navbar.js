@@ -32,14 +32,11 @@ const AppNavbar = () => {
                             <Nav.Link as={Link} to='/about'>
                                 About
                             </Nav.Link>
-                            <Nav.Link as={Link} to='/currencySearch'>
-                                Coin Stats
-                            </Nav.Link>
                             {/* if user is logged in show saved books and logout */}
                             {Auth.loggedIn() ? (
                                 <>
-                                    <Nav.Link as={Link} to='/saved'>
-                                        See Your News
+                                    <Nav.Link as={Link} to='/transactions'>
+                                        Transactions
                                     </Nav.Link>
                                     <Nav.Link as={Link} to='/profile'>
                                         Profile

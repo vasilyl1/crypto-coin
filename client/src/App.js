@@ -8,16 +8,15 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './components/pages/Homepage';
-import UserNews from './components/pages/UserNews';
+import Profile from './components/pages/Profile';
 import Navbar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
-import Auth from './components/utils/auth';
-import PersonalNotes from './components/pages/PersonalNotes';
+// import Auth from './components/utils/auth';
+import Transactions from './components/pages/Transactions';
 import Footer from './components/Footer';
 import About from './components/pages/About';
 import PageNotFound from './components/pages/PageNotFound';
-import CurrencySearch from './components/pages/currencySearch';
 
 // Construct main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -69,15 +68,11 @@ function App() {
             />
              <Route
               path="/profile"
-              element={<UserNews />}
+              element={<Profile />}
             />
                <Route
-              path="/saved"
-              element={<PersonalNotes />}
-            />
-            <Route
-              path="/currencySearch"
-              element={<CurrencySearch />}
+              path="/transactions"
+              element={<Transactions />}
             />
             <Route
               path='*'

@@ -7,25 +7,19 @@ import { newsSupplier, coinData } from "../utils/NewsSupplier";
 
 const Homepage = () => {
 
-  const { loading, error, data } = useQuery(QUERY_NEWS, {variables: {subscription: 'free' }}); 
+  const { loading, error, data } = useQuery(QUERY_NEWS, { variables: { subscription: 'free' } });
   if (!loading) {
-  console.log(error);
-  console.log(data);};
+    console.log(error);
+    console.log(data);
+  };
 
 
   if (data) { console.log(data); }
-  // const { loading, data } = useQuery(QUERY_USER, { variables: { username: 'yaro' } });
-  // const searchedNews = data?.textContent || [
-  //   { textContent: 'news1', date: 'Jan 1 2023' },
-  //   { textContent: 'news2', date: 'Jan 1 2022' },
-  //   { textContent: 'news3', date: 'Jan 1 2021' },
-  //   { textContent: 'news4', date: 'Jan 1 2020' },
-  //   { textContent: 'news5', date: 'Jan 1 2019' }
-  // ];
+
 
   // fetch the market data
-  const [coinData, getMarket] = useState([]);
-  const [coinDataLoadig, updLoading] = useState(true);
+  const [coinData, getMarket] = useState({});
+  const [coinDataLoading, updLoading] = useState(true);
 
   useEffect(() => {
 
@@ -34,7 +28,7 @@ const Homepage = () => {
       try {
         const response = await coinData();
 
-        const data = await response.json();
+        const data = response.json();
         updLoading(false); // change the flag that async loading completed
         getMarket(data); // change the state with the loaded data
         // console.log(response);
@@ -47,7 +41,7 @@ const Homepage = () => {
     }
 
     abc();
-  },[]);
+  }, []);
 
   return (
     <>
@@ -66,62 +60,60 @@ const Homepage = () => {
         </div>
       </div>
 
+
+      {coinDataLoading ? (<div>Loading...</div>) :
+        (<>
+
+          <div>
+            {coinData?.map((c) =>
+              <>
+                <img src={c.image} />
+                {c.symbol} {c.name}
+                {c.market_cap} {c.total_volume}
+                {c.high_24h} {c.low_24h} {c.price_change_24h}
+              </>
+            )}
+          </div>
+        </>)}
+
       <Container id="news-feed">
         <h5 className="pt-5">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="25" height="25"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21 7L13 15L9 11L3 17M21 7H15M21 7V13" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="25" height="25"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21 7L13 15L9 11L3 17M21 7H15M21 7V13" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
           &nbsp;
           Trending articles
         </h5>
 
-        {coinDataLoadig ? (<div>Loading...</div>) :
-          (<>
-
-            <div>
-              {coinData?.map((c) =>
-                <>
-                  <img src={c.image} />
-                  {c.symbol} {c.name}
-                  {c.market_cap} {c.total_volume}
-                  {c.high_24h} {c.low_24h} {c.price_change_24h}
-                </>
-              )}
-            </div>
-          </>)}
 
         <Row>
-          newsId: news.id,
-          authors: news.volumeInfo.authors || ["No author to display"],
-          title: news.volumeInfo.title,
-          description: news.volumeInfo.description,
-          image: news.volumeInfo.imageLinks?.thumbnail || "", */}
-          {loading ? (<div>Loading...</div>) :
-          (<>
-          {data.getNews.map((news) => {
-            return (
-              <>
-                <div class="card mb-3" style={{ maxWidth: '540px' }}>
-                  <div class="row g-0">
-                    <div class="col-md-8">
-                      <div className="card-body">
-                        <p className="mb-1"> {news.username} </p>
-                        <h5 className="card-title" style={{ display: 'inline-block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '20ch' }}>{news.textContent}</h5>
-                        <br />
-                        <p className="card-text" style={{ display: 'inline-block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '60ch' }}>{news.date}</p>
 
-                        <p className="card-text"><small className="text-body-secondary">March 28 &#x2022; 4 min read &#x2022; Bitcoin</small></p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bookmark-plus" viewBox="0 0 16 16">
-                          <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
-                          <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z" />
-                        </svg>
+          {loading ? (<div>Loading...</div>) :
+            (<>
+              {data.getNews.map((news) => {
+                return (
+                  <>
+                    <div class="card mb-3" key={news.title} style={{ maxWidth: '540px' }}>
+                      <div class="row g-0">
+                        <div class="col-md-8">
+                          <div className="card-body">
+                            <p className="mb-1"> {news.username} </p>
+                            <h5 className="card-title" style={{ display: 'inline-block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '20ch' }}>{news.textContent}</h5>
+                            <br />
+                            <p className="card-text" style={{ display: 'inline-block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '60ch' }}>{news.date}</p>
+
+                            <p className="card-text"><small className="text-body-secondary">March 28 &#x2022; 4 min read &#x2022; Bitcoin</small></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bookmark-plus" viewBox="0 0 16 16">
+                              <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                              <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z" />
+                            </svg>
+                          </div>
+                        </div>
+
                       </div>
                     </div>
-                  
-                  </div>
-                </div>
-              </>
-            );
-          })}
-          </>)}
+                  </>
+                );
+              })}
+            </>)}
         </Row >
         <br />
         <hr />

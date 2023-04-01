@@ -6,7 +6,7 @@ import { basicSetup, minimalSetup } from '@uiw/codemirror-extensions-basic-setup
 import { initdb, getDb, putDb } from '../utils/editor/database';
 import { header } from '../utils/editor/header';
 
-const PersonalNotes = ({ value = "", onUpdate = undefined }) => {
+const Transactions = ({ value = "", onUpdate = undefined }) => {
   const editor = useRef(null);
   const [code, setCode] = useState('');
 
@@ -89,4 +89,4 @@ const PersonalNotes = ({ value = "", onUpdate = undefined }) => {
 
 }
 
-export default PersonalNotes;
+export default Transactions;

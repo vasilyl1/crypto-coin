@@ -10,6 +10,12 @@ const resolvers = {
         getNews: async (parent, { subscription }) => {
             return await News.find({ subscription: subscription }).populate('source');
         },
+        me: async (parent, args, context) => {
+            if (context.user) {
+                return User.findOne({ _id: context.user._id });
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
 
     },
 
