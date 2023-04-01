@@ -8,10 +8,9 @@ import { newsSupplier, coinData } from "../utils/NewsSupplier";
 const Homepage = () => {
 
   const { loading, error, data } = useQuery(QUERY_NEWS, {variables: {subscription: 'free' }}); 
-  // const { loading, error, data } = useQuery(QUERY_NEWS);
+  if (!loading) {
   console.log(error);
-  console.log(loading);
-  console.log(data);
+  console.log(data);};
 
 
   if (data) { console.log(data); }
@@ -57,11 +56,11 @@ const Homepage = () => {
     const abc = async () => {
 
       try {
-        const response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin`);
+        const response = await coinData();
 
         const data = await response.json();
-        await updLoading(false); // change the flag that async loading completed
-        await getMarket(data); // change the state with the loaded data
+        updLoading(false); // change the flag that async loading completed
+        getMarket(data); // change the state with the loaded data
         // console.log(response);
         // console.log(data);
         // console.log(response.body);
@@ -72,7 +71,7 @@ const Homepage = () => {
     }
 
     abc();
-  }, []);
+  },[]);
 
 
 
@@ -125,6 +124,8 @@ const Homepage = () => {
           title: news.volumeInfo.title,
           description: news.volumeInfo.description,
           image: news.volumeInfo.imageLinks?.thumbnail || "", */}
+          {loading ? (<div>Loading...</div>) :
+          (<>
           {data.getNews.map((news) => {
             return (
               <>
@@ -153,6 +154,7 @@ const Homepage = () => {
               </>
             );
           })}
+          </>)}
         </Row >
         <br />
         <hr />
