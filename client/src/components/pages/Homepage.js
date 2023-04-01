@@ -7,15 +7,21 @@ import { newsSupplier, coinData } from "../utils/NewsSupplier";
 
 const Homepage = () => {
 
-  // const { loading, data } = useQuery(QUERY_NEWS, {variables: {subscription: 'free' }});
-  const { loading, data } = useQuery(QUERY_USER, { variables: { username: 'yaro' } });
-  const searchedNews = data?.username || [
-    { textContent: 'news1', date: 'Jan 1 2023' },
-    { textContent: 'news2', date: 'Jan 1 2022' },
-    { textContent: 'news3', date: 'Jan 1 2021' },
-    { textContent: 'news4', date: 'Jan 1 2020' },
-    { textContent: 'news5', date: 'Jan 1 2019' }
-  ];
+  const { loading, error, data } = useQuery(QUERY_NEWS, {variables: {subscription: 'free' }}); 
+  if (!loading) {
+  console.log(error);
+  console.log(data);};
+
+
+  if (data) { console.log(data); }
+  // const { loading, data } = useQuery(QUERY_USER, { variables: { username: 'yaro' } });
+  // const searchedNews = data?.textContent || [
+  //   { textContent: 'news1', date: 'Jan 1 2023' },
+  //   { textContent: 'news2', date: 'Jan 1 2022' },
+  //   { textContent: 'news3', date: 'Jan 1 2021' },
+  //   { textContent: 'news4', date: 'Jan 1 2020' },
+  //   { textContent: 'news5', date: 'Jan 1 2019' }
+  // ];
 
   // fetch the market data
   const [coinData, getMarket] = useState([]);
@@ -26,22 +32,22 @@ const Homepage = () => {
     const abc = async () => {
 
       try {
-        const response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin`);
+        const response = await coinData();
 
         const data = await response.json();
-        await updLoading(false); // change the flag that async loading completed
-        await getMarket(data); // change the state with the loaded data
-        console.log(response);
-        console.log(data);
-        console.log(response.body);
-        console.log(coinData); // log what has been returned from API provider
+        updLoading(false); // change the flag that async loading completed
+        getMarket(data); // change the state with the loaded data
+        // console.log(response);
+        // console.log(data);
+        // console.log(response.body);
+        // console.log(coinData); // log what has been returned from API provider
       } catch (err) {
         console.error(err);
       }
     }
 
     abc();
-  }, []);
+  },[]);
 
   return (
     <>
@@ -87,8 +93,10 @@ const Homepage = () => {
           authors: news.volumeInfo.authors || ["No author to display"],
           title: news.volumeInfo.title,
           description: news.volumeInfo.description,
-          image: news.volumeInfo.imageLinks?.thumbnail || "",
-          {searchedNews.map((news) => {
+          image: news.volumeInfo.imageLinks?.thumbnail || "", */}
+          {loading ? (<div>Loading...</div>) :
+          (<>
+          {data.getNews.map((news) => {
             return (
               <>
                 <div class="card mb-3" style={{ maxWidth: '540px' }}>
@@ -113,6 +121,7 @@ const Homepage = () => {
               </>
             );
           })}
+          </>)}
         </Row >
         <br />
         <hr />

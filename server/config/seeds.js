@@ -26,61 +26,71 @@ db.once('open', async () => {
 
   const news = await News.insertMany([
     {
-        textContent: "Ethereum Core Developers Announce Date for Long-Awaited Shapella Upgrade – Here's What You Need to Know", 
+        title: "title",
+        body: "Ethereum Core Developers Announce Date for Long-Awaited Shapella Upgrade – Here's What You Need to Know", 
         date: date, 
         source: sources[0]._id,
         subscription: 'free'
     },
     {
-        textContent: 'Coinbase Aims to Stay in Canada; Binance Could Be Poised to Exit Amid Regulatory Shakeup', 
+      title: "title",
+        body: 'Coinbase Aims to Stay in Canada; Binance Could Be Poised to Exit Amid Regulatory Shakeup', 
         date: date, 
         source: sources[1]._id,
         subscription: 'free'
     },
     {
-        textContent: 'Indonesian government looks to NFTs to preserve cultural heritage', 
+      title: "title",
+      body: 'Indonesian government looks to NFTs to preserve cultural heritage', 
         date: date, 
         source: sources[2]._id,
         subscription: 'free'
     },
     {
-        textContent: 'Denmark to Start Taxing Bitcoin Profits, Rules the Supreme Court', 
+      title: "title",
+      body: 'Denmark to Start Taxing Bitcoin Profits, Rules the Supreme Court', 
         date: date, 
         source: sources[3]._id,
         subscription: 'free'
     },
     {
-        textContent: '$100,000 Blockchain Gaming Esports Tournament: Crypto Startups Making Big Bets As Blockchain-Based Assets Make Rebound', 
+      title: "title",
+      body: '$100,000 Blockchain Gaming Esports Tournament: Crypto Startups Making Big Bets As Blockchain-Based Assets Make Rebound', 
         date:date, 
         source: sources[4]._id,
         subscription: 'free'
     },
     {
-        textContent: 'How Cryptocurrencies and the Metaverse Revolution Together Drive Economic Growth', 
+      title: "title",
+      body: 'How Cryptocurrencies and the Metaverse Revolution Together Drive Economic Growth', 
         date:date, 
         source: sources[5]._id,
         subscription: 'free'
     },
     {
-        textContent: 'Core’s Revolutionary Satoshi Plus Consensus Marries Decentralization, Security, and Scalability', 
+      title: "title",
+      body: 'Core’s Revolutionary Satoshi Plus Consensus Marries Decentralization, Security, and Scalability', 
         date:date, 
         source: sources[6]._id,
         subscription: 'free'
     },    
     {
-        textContent: 'Japanese Government to Create Panel to Explore Digital Yen', 
+      title: "title",
+      body: 'Japanese Government to Create Panel to Explore Digital Yen', 
         date:date, 
         source: sources[7]._id,
         subscription: 'free'
     },    
     {
-        textContent: 'Bitcoin reclaims $28,000, and FDIC gives deadline for Signature’s crypto clients: CNBC Crypto World', 
+      title: "title",
+      body: 'Bitcoin reclaims $28,000, and FDIC gives deadline for Signature’s crypto clients: CNBC Crypto World', 
         date:date, 
         source: sources[8]._id,
         subscription: 'intermediate'
     },
     {
-        textContent: "Coinbase Survey Reveals Americans Are Frustrated by the Financial System's Inequality", 
+      title: "title",
+      body: "Coinbase Survey Reveals Americans Are Frustrated by the Financial System's Inequality", 
         date:date, 
         source: sources[9]._id,
         subscription: 'advanced'

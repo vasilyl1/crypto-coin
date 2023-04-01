@@ -1,9 +1,13 @@
 const { Schema, model } = require('mongoose');
 
 const newsSchema = new Schema({
-  textContent: {
+  title: {
     type: String,
     required: true
+  },
+  body: {
+    type: String,
+    default: ''
   },
   date: {
     type: String, 
