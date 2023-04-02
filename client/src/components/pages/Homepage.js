@@ -46,6 +46,22 @@ const Homepage = () => {
         </div>
       </div>
 
+
+      {coinDataLoading ? (<div>Loading...</div>) :
+        (<>
+
+          <div>
+            {coinData?.map((c) =>
+              <>
+                <img src={c.image} />
+                {c.symbol} {c.name}
+                {c.market_cap} {c.total_volume}
+                {c.high_24h} {c.low_24h} {c.price_change_24h}
+              </>
+            )}
+          </div>
+        </>)}
+
       <Container id="news-feed">
         <h5 className="pt-5">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="25" height="25"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21 7L13 15L9 11L3 17M21 7H15M21 7V13" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
@@ -53,20 +69,6 @@ const Homepage = () => {
           Trending articles
         </h5>
 
-        {coinDataLoadig ? (<div>Loading...</div>) :
-          (<>
-
-            <div>
-              {coinData?.map((c) =>
-                <>
-                  <img src={c.image} />
-                  {c.symbol} {c.name}
-                  {c.market_cap} {c.total_volume}
-                  {c.high_24h} {c.low_24h} {c.price_change_24h}
-                </>
-              )}
-            </div>
-          </>)}
 
         <Row>
           {/* newsId: news.id,

@@ -65,7 +65,6 @@ const LoginForm = (props) => {
                     <Form.Label htmlFor='email'>Email</Form.Label>
                     <Form.Control
                         type='text'
-                        placeholder='Your email'
                         name='email'
                         onChange={handleChange}
                         value={formState.email}
@@ -78,7 +77,6 @@ const LoginForm = (props) => {
                     <Form.Label htmlFor='password'>Password</Form.Label>
                     <Form.Control
                         type='password'
-                        placeholder='Your password'
                         name='password'
                         onChange={handleChange}
                         value={formState.password}

@@ -32,14 +32,11 @@ const AppNavbar = () => {
                             <Nav.Link as={Link} to='/about'>
                                 About
                             </Nav.Link>
-                            <Nav.Link as={Link} to='/currencySearch'>
-                                Coin Stats
-                            </Nav.Link>
                             {/* if user is logged in show saved books and logout */}
                             {Auth.loggedIn() ? (
                                 <>
-                                    <Nav.Link as={Link} to='/saved'>
-                                        See Your News
+                                    <Nav.Link as={Link} to='/transactions'>
+                                        Transactions
                                     </Nav.Link>
                                     <Nav.Link as={Link} to='/profile'>
                                         Profile
@@ -56,7 +53,7 @@ const AppNavbar = () => {
 
             {/* set modal data up */}
             <Modal
-                size='lg'
+                size='md'
                 show={showModal}
                 onHide={() => setShowModal(false)}
                 aria-labelledby='signup-modal'>
@@ -64,12 +61,12 @@ const AppNavbar = () => {
                 <Tab.Container defaultActiveKey='login'>
                     <Modal.Header closeButton>
                         <Modal.Title id='signup-modal'>
-                            <Nav variant='pills'>
+                            <Nav variant='tabs'>
                                 <Nav.Item>
-                                    <Nav.Link eventKey='login'>Login</Nav.Link>
+                                    <Nav.Link eventKey='login' className="fs-6">Login</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
+                                    <Nav.Link eventKey='signup' className="fs-6">Sign Up</Nav.Link>
                                 </Nav.Item>
                             </Nav>
                         </Modal.Title>
