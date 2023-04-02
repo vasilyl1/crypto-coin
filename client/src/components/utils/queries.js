@@ -15,7 +15,9 @@ export const QUERY_NEWS = gql`
   query GetNews($subscription: String!) {
     getNews(subscription: $subscription) {
         _id
-        textContent
+        title
+        author
+        body
         date
         subscription
         source {

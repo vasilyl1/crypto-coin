@@ -5,6 +5,10 @@ const newsSchema = new Schema({
     type: String,
     required: true
   },
+  author: {
+    type: String,
+    default: ''
+  },
   body: {
     type: String,
     default: ''

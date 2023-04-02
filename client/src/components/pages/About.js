@@ -1,16 +1,27 @@
-
+import React, { useEffect } from 'react';
 
 const About = () => {
+
+    useEffect(() => {
+        const contactButton = document.querySelector('a[href="#contact-form"]');
+        contactButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            const contactForm = document.querySelector('#contact-form');
+            contactForm.scrollIntoView({ behavior: 'smooth' });
+        });
+    }, []); 
+
+
     return (
         <>
-            <div class="position-relative overflow-hidden p-md-5 text-center bg-light">
-                <div class="col-md-5 p-lg-5 mx-auto my-5">
-                    <h1 class="display-4 fw-normal">About Us</h1>
-                    <p class="lead fw-normal">A group of cryptocurrency experts aiming to further your knowledge.</p>
-                    <a class="btn btn-outline-secondary" href="#contact-form">Contact Us</a>
+            <div className="position-relative overflow-hidden p-md-5 text-center bg-light">
+                <div className="col-md-5 p-lg-5 mx-auto my-5">
+                    <h1 className="display-4 fw-normal">About Us</h1>
+                    <p className="lead fw-normal">A group of cryptocurrency experts aiming to further your knowledge.</p>
+                    <a className="btn btn-outline-secondary" href="#contact-form">Contact Us</a>
                 </div>
-                <div class="product-device shadow-sm d-none d-md-block"></div>
-                <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+                <div className="product-device shadow-sm d-none d-md-block"></div>
+                <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
             </div>
             <div className="container text-center mt-5">
                 <div className="row">
@@ -19,7 +30,6 @@ const About = () => {
                     </div>
                 </div>
             </div>
-
 
             <div className="container text-center p-5">
                 <div className="row">
@@ -56,21 +66,21 @@ const About = () => {
                         </div>
                         <div class="mb-3">
                             <label for="Email" class="form-label">Email address:</label>
-                            <input type="email" name="email" class="form-control border" id="Email"  />
+                            <input type="email" name="email" class="form-control border" id="Email" />
                         </div>
                         <div class="mb-3">
                             <label for="Message" class="form-label">Message:</label>
                             <textarea name="message" class="form-control border" id="Message" rows="5" ></textarea>
                         </div>
                         <div className="text-center">
-                        <button type="button" className="btn btn-outline-secondary ">Submit</button>
+                            <button type="submit" className="btn btn-outline-secondary ">Submit</button>
                         </div>
                     </form>
-                   
+
                 </div>
             </div>
             <br />
-            
+
         </>
     );
 }

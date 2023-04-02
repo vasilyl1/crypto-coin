@@ -15,7 +15,9 @@ const typeDefs = gql`
 
   type News {
     _id: ID
-    textContent: String
+    title: String!
+    author: String
+    body: String!
     date: String!
     source: Sources
     subscription: String!
