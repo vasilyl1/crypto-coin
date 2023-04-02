@@ -9,17 +9,37 @@ const Homepage = () => {
 
   const { loading, error, data } = useQuery(QUERY_NEWS, { variables: { subscription: 'free' } });
 
-
+  console.log(data);
   // fetch the market data
   const [coinData, getMarket] = useState([]); // state to keep the API data 
-  const [coinDataLoadig, updLoading] = useState(true); // state to indicate when the API data is loading -used for conditional rendering
+  const [coinDataLoading, updLoading] = useState(true); // state to indicate when the API data is loading -used for conditional rendering
 
+  console.log(coinData);
 
   useEffect(() => {
     const abc = async () => {
       try {
         const response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin`);
         const data = await response?.json();
+
+        const response2 = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=ethereum`);
+        const data2 = await response2?.json();
+
+        // const response5 = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=xrp`);
+        // const data5 = await response5?.json();
+        // console.log(data5);
+        // const response6 = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=ada`);
+        // const data6 = await response6?.json();
+        // console.log(data6);
+        // const response7 = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=polygon`);
+        // const data7 = await response7?.json();
+        // console.log(data7);
+        // const response8 = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=tether`);
+        // const data8 = await response8?.json();
+        // console.log(data8);
+
+        data.push(...data2);
+
         updLoading(false); // change the flag that async loading completed
         getMarket(data); // change the state with the loaded data
       } catch (err) {
@@ -47,23 +67,52 @@ const Homepage = () => {
       </div>
 
 
-      {coinDataLoading ? (<div>Loading...</div>) :
-        (<>
 
-          <div>
-            {coinData?.map((c) =>
-              <>
-                <img src={c.image} />
-                {c.symbol} {c.name}
-                {c.market_cap} {c.total_volume}
-                {c.high_24h} {c.low_24h} {c.price_change_24h}
-              </>
-            )}
+
+      <div className="container col-xxl-8 px-4 py-5">
+        <div classnName="container col-md-10">
+          <h2 className="pb-3">Market Stats</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Market Cap</th>
+                  <th>Total Volume</th>
+                  <th>High 24hr</th>
+                  <th>Low 24hr</th>
+                  <th>Price Change 24hr</th>
+                </tr>
+              </thead>
+              <tbody>
+                {coinDataLoading ? (<div>Loading...</div>) :
+                  (
+                    <>
+                      {coinData?.map((c) => {
+                        console.log(c.name);
+                        return (
+                          <tr>
+                            <td>{c.name}</td>
+                            <td>${(c.market_cap).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
+                            <td>${(c.total_volume).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
+                            <td>${(c.high_24h).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
+                            <td>${(c.low_24h).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
+                            <td>${(c.price_change_24h).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
+                          </tr>
+
+                        );
+                      }
+                      )}
+                    </>
+                  )}
+              </tbody>
+            </table>
           </div>
-        </>)}
+        </div>
+      </div>
 
       <Container id="news-feed">
-        <h5 className="pt-5">
+        <h5 className="pt-5 pb-3">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="25" height="25"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21 7L13 15L9 11L3 17M21 7H15M21 7V13" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
           &nbsp;
           Trending articles
@@ -71,35 +120,31 @@ const Homepage = () => {
 
 
         <Row>
-          {/* newsId: news.id,
-          authors: news.volumeInfo.authors || ["No author to display"],
-          title: news.volumeInfo.title,
-          description: news.volumeInfo.description,
-          image: news.volumeInfo.imageLinks?.thumbnail || "", */}
+
           {loading ? (<div>Loading...</div>) :
             (<>
               {data.getNews.map((news) => {
                 return (
                   <>
-                    <div class="card mb-3" style={{ maxWidth: '540px' }}>
+                    <div class="card m-2" style={{ maxWidth: '540px' }}>
                       <div class="row g-0">
                         <div class="col-md-8">
                           <div className="card-body">
-                            {/* <p className="mb-1"> {news.username} </p> */}
-                            <h5 className="card-title" style={{ display: 'inline-block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '20ch' }}>{news.source.title}</h5>
+                            <p className="mb-1"> {news.author} </p>
+                            <h5 className="card-title" style={{ display: 'inline-block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '20ch' }}>{news.title}</h5>
                             <br />
-                            <p className="card-text" style={{ display: 'inline-block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '60ch' }}>{news.date}</p>
+                            <p className="card-text" style={{ display: 'inline-block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '50ch' }}>{news.body}</p>
 
-                            <p className="card-text"><small className="text-body-secondary">{news.date} &#x2022; { } min read &#x2022; Bitcoin</small></p>
+                            <p className="card-text"><small className="text-body-secondary">{news.date} &#x2022; 4 min read &#x2022; Bitcoin</small></p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bookmark-plus" viewBox="0 0 16 16">
                               <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
                               <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z" />
                             </svg>
                           </div>
                         </div>
-                        <div className="col-md-4">
+                        {/* <div className="col-md-4">
                           <img src={news.image} className="img-fluid rounded-start" alt="{book.title + 'cover'}" />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
 
