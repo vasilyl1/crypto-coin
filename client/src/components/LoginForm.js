@@ -53,7 +53,7 @@ const LoginForm = (props) => {
         <>
             {data ?(
                 <p>
-                Success! You may now head to your saved books.
+                Success! You may now head to your personal profile.
                 </p>
             ) : (
         

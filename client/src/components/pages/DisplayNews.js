@@ -141,13 +141,13 @@ const DisplayNews = () => {
                     {Auth.loggedIn() && (
                       <Button
                         disabled={savedNewsIds?.some(
-                          (savedBookId) => savedBookId === news.bookId
+                          (savedNewsId) => savedNewsId === news.newsId
                         )}
                         className="btn-block btn-info"
-                        onClick={() => handleSaveNews(news.bookId)}
+                        onClick={() => handleSaveNews(news.newsId)}
                       >
                         {savedNewsIds?.some(
-                          (savedBookId) => savedBookId === news.bookId
+                          (savedNewsId) => savedNewsId === news.newsId
                         )
                           ? "This news has already been saved"
                           : "Save this News"}
