@@ -103,8 +103,8 @@ const Homepage = () => {
             (<>
               {data.getNews.map((news) => {
                 return (
-                  <div key={news._id}>
-                    <div className="card m-2" style={{ maxWidth: '540px' }}>
+                  < >
+                    <div key={news.username} className="card m-2" style={{ maxWidth: '540px' }}>
                       <div className="row g-0">
                         <div className="col-md-8">
                           <div className="card-body">
@@ -125,7 +125,9 @@ const Homepage = () => {
                         </div> */}
                       </div>
                     </div>
-                  </div>
+                    &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                  </>
+                 
                 );
               })}
             </>)}

@@ -56,9 +56,12 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-dark-subtle text-emphasis-dark ps-5 pt-5" >
-                <h2 className="p-4" id="contact-form">Contact Form</h2>
-                <div className="col-md-5 p-4">
+
+            <div className="bg-dark-subtle text-emphasis-dark ps-5 pt-5 d-flex justify-content-center" >
+                {/* <div className="">
+                <h2 className="" id="contact-form">Contact Form</h2>
+                </div> */}
+                <div className="col-md-5 p-4" id="contact-form">
                     <form >
                         <div className="mb-3">
                             <label htmlFor="Name" className="form-label">Name:</label>
