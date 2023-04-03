@@ -90,10 +90,6 @@ const Transactions = ({ value = "", onUpdate = undefined }) => {
         <div ref={editor}
         />
 
-        <div className="navbar-brand" > <img src="./assets/icons/icon_96x96.png" /></div>
-
-
-        <div className="navbar-brand" > <img src="./assets/icons/icon_96x96.png" /></div>
       </nav >
 
       <main id="main">
