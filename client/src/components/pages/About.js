@@ -34,7 +34,7 @@ const About = () => {
             <div className="container text-center p-5">
                 <div className="row">
                     <div className="col-md-10 mx-auto">
-                        <p className="">
+                        <p>
                             <br />
                             Welcome to Crypto Coin, the go-to website for all things related to cryptocurrency news and updates. Our website offers a comprehensive platform where users can stay up-to-date with the latest trends, insights, and news related to cryptocurrency.
                             <br />
@@ -60,17 +60,17 @@ const About = () => {
                 <h2 className="p-4" id="contact-form">Contact Form</h2>
                 <div className="col-md-5 p-4">
                     <form >
-                        <div class="mb-3">
-                            <label for="Name" class="form-label">Name:</label>
-                            <input type="text" name="userName" class="form-control border" id="Name" placeholder="" />
+                        <div className="mb-3">
+                            <label htmlFor="Name" className="form-label">Name:</label>
+                            <input type="text" name="userName" className="form-control border" id="Name"/>
                         </div>
-                        <div class="mb-3">
-                            <label for="Email" class="form-label">Email address:</label>
-                            <input type="email" name="email" class="form-control border" id="Email" />
+                        <div className="mb-3">
+                            <label htmlFor="Email" className="form-label">Email address:</label>
+                            <input type="email" name="email" className="form-control border" id="Email" />
                         </div>
-                        <div class="mb-3">
-                            <label for="Message" class="form-label">Message:</label>
-                            <textarea name="message" class="form-control border" id="Message" rows="5" ></textarea>
+                        <div className="mb-3">
+                            <label htmlFor="Message" className="form-label">Message:</label>
+                            <textarea name="message" className="form-control border" id="Message" rows="5" ></textarea>
                         </div>
                         <div className="text-center">
                             <button type="submit" className="btn btn-outline-secondary ">Submit</button>

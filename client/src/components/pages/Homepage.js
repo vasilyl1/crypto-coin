@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Container, Col, Form, Button, Card, Row } from "react-bootstrap";
-
+import { Container, Row } from "react-bootstrap";
 import { useQuery } from '@apollo/client';
-import { QUERY_NEWS, QUERY_USER } from '../utils/queries';
-import { newsSupplier, coinData } from "../utils/NewsSupplier";
+import { QUERY_NEWS } from '../utils/queries';
 
 const Homepage = () => {
 
-  const { loading, error, data } = useQuery(QUERY_NEWS, { variables: { subscription: 'free' } });
+  const { loading, data } = useQuery(QUERY_NEWS, { variables: { subscription: 'free' } });
 
-  console.log(data);
-  // fetch the market data
   const [coinData, getMarket] = useState([]); // state to keep the API data 
   const [coinDataLoading, updLoading] = useState(true); // state to indicate when the API data is loading -used for conditional rendering
-
-  console.log(coinData);
+  let key = 0
 
   useEffect(() => {
     const abc = async () => {
@@ -24,19 +19,6 @@ const Homepage = () => {
 
         const response2 = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=ethereum`);
         const data2 = await response2?.json();
-
-        // const response5 = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=xrp`);
-        // const data5 = await response5?.json();
-        // console.log(data5);
-        // const response6 = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=ada`);
-        // const data6 = await response6?.json();
-        // console.log(data6);
-        // const response7 = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=polygon`);
-        // const data7 = await response7?.json();
-        // console.log(data7);
-        // const response8 = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=tether`);
-        // const data8 = await response8?.json();
-        // console.log(data8);
 
         data.push(...data2);
 
@@ -66,14 +48,11 @@ const Homepage = () => {
         </div>
       </div>
 
-
-
-
       <div className="container col-xxl-8 px-4 py-5">
-        <div classnName="container col-md-10">
+        <div className="container col-md-10">
           <h2 className="pb-3">Market Stats</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
+          <div className="table-responsive">
+            <table className="table table-striped table-sm">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -85,13 +64,12 @@ const Homepage = () => {
                 </tr>
               </thead>
               <tbody>
-                {coinDataLoading ? (<div>Loading...</div>) :
+                {coinDataLoading ? (<tr><td>Loading...'</td></tr>) :
                   (
                     <>
                       {coinData?.map((c) => {
-                        console.log(c.name);
                         return (
-                          <tr>
+                          <tr key={key++}>
                             <td>{c.name}</td>
                             <td>${(c.market_cap).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
                             <td>${(c.total_volume).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
@@ -125,10 +103,10 @@ const Homepage = () => {
             (<>
               {data.getNews.map((news) => {
                 return (
-                  <>
-                    <div class="card m-2" style={{ maxWidth: '540px' }}>
-                      <div class="row g-0">
-                        <div class="col-md-8">
+                  <div key={news._id}>
+                    <div className="card m-2" style={{ maxWidth: '540px' }}>
+                      <div className="row g-0">
+                        <div className="col-md-8">
                           <div className="card-body">
                             <p className="mb-1"> {news.author} </p>
                             <h5 className="card-title" style={{ display: 'inline-block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '20ch' }}>{news.title}</h5>
@@ -147,8 +125,7 @@ const Homepage = () => {
                         </div> */}
                       </div>
                     </div>
-
-                  </>
+                  </div>
                 );
               })}
             </>)}
