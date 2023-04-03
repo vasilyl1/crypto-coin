@@ -104,11 +104,14 @@ Yaroslav Volvach - volvachya@gmail.com<br />
 
 ## ScreenShots
 
-<img width="1438" alt="Screenshot 2023-03-31 at 11 39 56" src="https://user-images.githubusercontent.com/60551329/229166885-aa22c8bc-46a2-478b-a57e-70ad88ef6e09.png">
-<img width="1440" alt="Screenshot 2023-03-31 at 11 40 25" src="https://user-images.githubusercontent.com/60551329/229166907-484d15ac-05da-48e0-85da-c1a61841c06a.png">
-<img width="1440" alt="Screenshot 2023-03-31 at 11 40 37" src="https://user-images.githubusercontent.com/60551329/229166918-0493a057-595d-46b3-84de-2de219660ed6.png">
+<img width="1438" alt="Screenshot 2023-04-02 at 11 37 00" src="https://user-images.githubusercontent.com/60551329/229363430-ff4ae61f-c71b-4f32-9ea2-f87e4b79a49d.png">
+<img width="1127" alt="Screenshot 2023-04-02 at 11 37 15" src="https://user-images.githubusercontent.com/60551329/229363460-2253cd1e-29da-4ce8-8a14-e2b4dfe6832a.png">
+<img width="1440" alt="Screenshot 2023-04-02 at 11 37 31" src="https://user-images.githubusercontent.com/60551329/229363485-09697aa4-0694-4d83-9448-f62c91ae8c03.png">
+<img width="1440" alt="Screenshot 2023-04-02 at 11 37 42" src="https://user-images.githubusercontent.com/60551329/229363503-55a0430b-a8b9-4ddb-85f7-2c3aaace8953.png">
+<img width="1440" alt="Screenshot 2023-04-02 at 11 38 02" src="https://user-images.githubusercontent.com/60551329/229363511-959600ec-351a-4da5-9b31-ce7a1268dea6.png">
+
 
 ## Go to Crypto-Coin 
 
-Crypto-Coin Site: https://shopstore.herokuapp.com/
+Crypto-Coin Site: https://cryptocoin.herokuapp.com/
 
