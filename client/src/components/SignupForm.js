@@ -42,7 +42,6 @@ const Signup = (props) => {
             Auth.login(data.addUser.token);
 
         } catch (e) {
-            console.error(e);
             setShowAlert(true);
         };
 

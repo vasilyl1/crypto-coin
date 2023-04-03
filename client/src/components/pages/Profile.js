@@ -1,24 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import {
-    Container,
-    Card,
-    Button,
-    Row,
-    Col
-} from 'react-bootstrap';
-import { useQuery, useLazyQuery, useMutation } from '@apollo/client';
+
+import { useQuery} from '@apollo/client';
 
 //import { getMe, deleteBook } from '../utils/API';
 import { QUERY_ME } from '../utils/queries';
-import { DELETE_NEWS } from '../utils/mutations';
-import Auth from '../utils/auth';
-import { removeNewsId } from '../utils/localStorage';
+
 
 const Profile = () => {
 
     const [userData, setUserData] = useState({});
     const {loading, data} = useQuery(QUERY_ME);
-    console.log(data);
 
     useEffect(() => {
         if (data) {
